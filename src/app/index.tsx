@@ -1,16 +1,27 @@
+import React from "react";
 import { router } from "expo-router";
-import { View, Text } from "react-native";
 import { hideAsync } from "expo-splash-screen";
 import { AntDesign } from "@expo/vector-icons";
+import { View, Text, Image } from "react-native";
+import { useUser } from "@/src/providers/user.provider";
 
-hideAsync();
+setTimeout(hideAsync, 100);
 export default function () {
-    return <View style={{ gap: 80 }} className="justify-end items-center wrapper">
-        <View style={{ gap: 20 }} className="justify-center items-center w-full">
-            <Text className="font-bold text-2xl text-center">Lorem ipsum dolor sit.</Text>
+    const { user } = useUser();
+
+    React.useEffect(() => {
+        if (user) router.replace("/dashboard");
+    }, [user]);
+
+    return <View style={{ gap: 80 }} className="justify-around items-center wrapper">
+        <Image source={require("@/assets/splash.png")} className="w-72 h-72 mt-10 rounded-md" />
+
+        <View style={{ gap: 20 }} className="justify-center mt-auto items-center w-full">
+            <Text className="font-bold text-2xl text-center">Welcome to Schooled</Text>
             <Text className="text-center text-slate-500 text-sm">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Cupiditate at maiores vitae, ea beatae eligendi? Voluptatibus, consequuntur vel?
+                Your complete student portal for managing admissions,
+                academic records, and student life. Register for admission,
+                track your progress, and access all your academic information in one place.
             </Text>
         </View>
 

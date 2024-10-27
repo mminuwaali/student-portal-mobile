@@ -1,27 +1,30 @@
 /// <reference types="nativewind/types" />
 
-declare type WelcomeType = {
+interface ProfileLinkType {
+    title: string;
+    onPress: () => void;
+    icon: () => JSX.Element;
+};
+
+interface WelcomeType {
     image: any;
     title: string;
 };
 
-declare interface BarPropsType {
+interface BarPropsType {
     current: boolean;
 };
 
-declare interface SectionPropsType {
+interface SectionPropsType {
     title: string;
+    titleClassName?: string;
+    headerClassName?: string;
+    wrapperClassName?: string;
     children: React.ReactNode;
+    containerClassName?: string;
 };
 
-declare interface AddressPropsType {
-    address: AddressType;
-};
-
-declare interface ResoucePropsType {
-};
-
-declare interface IndicatePropsType {
+interface IndicatePropsType {
     index: number;
     length: number;
     className?: string;

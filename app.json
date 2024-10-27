@@ -17,13 +17,14 @@
     },
     "android": {
       "adaptiveIcon": {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "#000000",
         "foregroundImage": "./assets/logo.png"
       }
     },
     "web": {
       "bundler": "metro",
-      "output": "static"
+      "output": "static",
+      "favicon": "./assets/logo.png"
     },
     "plugins": [
       "expo-router"
